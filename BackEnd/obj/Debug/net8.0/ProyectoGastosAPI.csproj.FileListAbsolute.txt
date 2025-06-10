@@ -554,4 +554,3 @@ C:\Users\lucav\OneDrive\Escritorio\Proyectos\ProyectoGrupal\BackEnd\obj\Debug\ne
 C:\Users\lucav\OneDrive\Escritorio\Proyectos\ProyectoGrupal\BackEnd\obj\Debug\net8.0\ProyectoGastosAPI.pdb
 C:\Users\lucav\OneDrive\Escritorio\Proyectos\ProyectoGrupal\BackEnd\obj\Debug\net8.0\ProyectoGastosAPI.genruntimeconfig.cache
 C:\Users\lucav\OneDrive\Escritorio\Proyectos\ProyectoGrupal\BackEnd\obj\Debug\net8.0\ref\ProyectoGastosAPI.dll
-C:\Users\lucav\OneDrive\Escritorio\Proyectos\ProyectoGrupal\BackEnd\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
