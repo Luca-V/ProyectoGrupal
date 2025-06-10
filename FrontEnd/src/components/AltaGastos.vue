@@ -10,23 +10,56 @@ const nuevoGasto = ref({
 
 const enviarGasto = async (e) => {
   e.preventDefault()
-  await fetch('http://localhost:5297/api/Gastos', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(nuevoGasto.value)
-  })
-  nuevoGasto.value = { monto: 0, descripcion: '', fecha: '', nombreComercio: '' }
 
-  window.location.href = "/ListadoGastos"
+  const datosGastos = {
+    monto: nuevoGasto.value.monto,
+    descripcion: nuevoGasto.value.descripcion,
+    fecha: nuevoGasto.value.fecha,
+    nombreComercio: nuevoGasto.value.nombreComercio
+  }
+
+  if (datosGastos.monto <= 0) {
+    alert('El monto debe ser mayor a cero')
+    return
+  }
+
+  if (datosGastos.descripcion.length < 3 || datosGastos.descripcion.length > 250) {
+    alert('La descripción debe tener entre 3 y 250 caracteres')
+    return
+  }
+
+  const formattedDate = new Date().toISOString().split('T')[0]
+
+  if (datosGastos.fecha == "" || datosGastos.fecha <= formattedDate) {
+    alert('La fecha debe ser una fecha futura')
+    return
+  }
+
+  if (datosGastos.nombreComercio.length === 0 || datosGastos.nombreComercio.length > 250) {
+    alert('El nombre del comercio no puede estar vacío y debe tener hasta 250 caracteres')
+    return
+  }
+
+  try {
+    await fetch('http://localhost:5297/api/Gastos', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(datosGastos)
+    })
+    nuevoGasto.value = { monto: 0, descripcion: '', fecha: '', nombreComercio: '' }
+    window.location.href = "/ListadoGastos"
+  } catch (error) {
+    console.log(error)
+  }
 }
 </script>
 
 <template>
     <form @submit="enviarGasto" class="formulario">
-      <input v-model="nuevoGasto.monto" placeholder="Monto" type="number" step="0.01" required />
-      <input v-model="nuevoGasto.descripcion" placeholder="Descripción" required />
-      <input v-model="nuevoGasto.fecha" type="date" required />
-      <input v-model="nuevoGasto.nombreComercio" placeholder="Nombre del comercio" required />
+      <input name="monto" v-model="nuevoGasto.monto" type="number" placeholder="Monto" step="0.01" />
+      <input name="descripcion" v-model="nuevoGasto.descripcion" type="text" placeholder="Descripción" />
+      <input name="fecha" v-model="nuevoGasto.fecha" type="date" />
+      <input name="nombreComercio" v-model="nuevoGasto.nombreComercio" type="text" placeholder="Nombre del comercio" />
       <button type="submit">Agregar Gasto</button>
     </form>
 </template>

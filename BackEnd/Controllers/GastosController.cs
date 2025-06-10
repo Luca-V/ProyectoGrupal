@@ -15,7 +15,6 @@ namespace ProyectoGastosAPI.Controllers
             _context = context;
         }
 
-        // GET: api/gastos
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Gasto>>> GetGastos()
         {
@@ -23,7 +22,6 @@ namespace ProyectoGastosAPI.Controllers
             return gastos;
         }
 
-        // POST: api/gastos
         [HttpPost]
         public async Task<ActionResult<Gasto>> PostGasto(Gasto gasto)
         {
@@ -37,4 +35,3 @@ namespace ProyectoGastosAPI.Controllers
         }
     }
 }
-
