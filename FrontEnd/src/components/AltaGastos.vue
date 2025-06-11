@@ -30,8 +30,8 @@ const enviarGasto = async (e) => {
 
   const formattedDate = new Date().toISOString().split('T')[0]
 
-  if (datosGastos.fecha == "" || datosGastos.fecha <= formattedDate) {
-    alert('La fecha debe ser una fecha futura')
+  if (datosGastos.fecha == "" || datosGastos.fecha > formattedDate) {
+    alert('La fecha no debe ser una fecha futura')
     return
   }
 
@@ -64,36 +64,6 @@ const enviarGasto = async (e) => {
     </form>
 </template>
 
-<!--------<style>
-.formulario {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.formulario input {
-  padding: 0.7rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-}
-
-.formulario button {
-  padding: 0.7rem;
-  background-color: #0077cc;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.formulario button:hover {
-  background-color: #005fa3;
-}
-</style>------->
 <style scoped>
 .formulario {
   background-color: #C19A6B; /* camel */
