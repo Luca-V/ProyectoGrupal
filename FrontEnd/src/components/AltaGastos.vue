@@ -66,7 +66,7 @@ const enviarGasto = async (e) => {
 
 <style scoped>
 .formulario {
-  background-color: #C19A6B; /* camel */
+  background-color: #C19A6B;
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -77,7 +77,7 @@ const enviarGasto = async (e) => {
 }
 
 .formulario input {
-  background-color: #F3E5AB; /* vainilla */
+  background-color: #F3E5AB;
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 0.75rem;
@@ -94,7 +94,7 @@ const enviarGasto = async (e) => {
 
 .formulario button {
   padding: 0.75rem;
-  background-color: #A0522D; /* terracota */
+  background-color: #A0522D;
   color: white;
   border: none;
   border-radius: 8px;
